@@ -1,1 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Interiors & Construction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary: #1a1a1a;
+            --accent: #c9a962;
+            --light: #f5f5f5;
+            --white: #ffffff;
+            --gray: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 5%;
+        }
+
+        nav.scrolled .logo,
+        nav.scrolled .nav-links a {
+            color: var(--primary);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .section-header h3 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--primary);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .service-card h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            background: var(--light);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: var(--white);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .contact .section-header h3 {
+            color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 1px solid #444;
+            background: #2a2a2a;
+            color: var(--white);
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #b8984f;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #666;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">Clean Interiors</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Clean Interiors & Construction</h1>
+            <p>Professional Construction Services</p>
+            <p style="font-size: 1rem; margin-top: 2rem; opacity: 0.9;">Transform Your Space with Experts of Interior Design</p>
+            <p style="font-size: 0.9rem; max-width: 500px; margin: 1rem auto;">Professional residential & commercial interior solutions with quality finishes. From painting to complete renovations, we bring your vision to life.</p>
+            <a href="#contact" class="btn" style="margin-top: 2rem;">Get Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-header">
+            <h2>What We Offer</h2>
+            <h3>Our Services</h3>
+            <p style="color: var(--gray); margin-top: 1rem;">Comprehensive interior and construction solutions tailored to your vision. From concept to completion, we deliver excellence.</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h4>Interior Painting</h4>
+                <p>Premium quality paints and expert application for flawless finishes that last.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h4>Gypsum & Ceiling</h4>
+                <p>Custom ceiling designs, bulkheads, and lighting integration for modern spaces.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧱</div>
+                <h4>Tiling & Flooring</h4>
+                <p>Precision installation of tiles, hardwood, and laminate flooring solutions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚪</div>
+                <h4>Cabinetry & Woodwork</h4>
+                <p>Custom cabinets, wardrobes, and built-in storage solutions crafted to perfection.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h4>Lighting Design</h4>
+                <p>Strategic lighting plans to enhance ambiance and functionality of your space.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h4>Full Renovations</h4>
+                <p>Complete home and office transformations from demolition to final touches.</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="margin-bottom: 1rem;">Need a custom solution? We're here to help.</p>
+            <a href="#contact" class="btn">Request Custom Quote</a>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="section-header">
+            <h2>Our Portfolio</h2>
+            <h3>Project Gallery</h3>
+            <p style="color: var(--gray); margin-top: 1rem;">Explore our portfolio of completed projects. Each image represents our commitment to quality and craftsmanship.</p>
+        </div>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="Modern Living Room">
+                <div class="gallery-overlay">
+                    <span>View Project</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600" alt="Kitchen Design">
+                <div class="gallery-overlay">
+                    <span>View Project</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600" alt="Office Space">
+                <div class="gallery-overlay">
+                    <span>View Project</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600" alt="Bedroom Interior">
+                <div class="gallery-overlay">
+                    <span>View Project</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600" alt="Dining Area">
+                <div class="gallery-overlay">
+                    <span>View Project</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=600" alt="Bathroom Design">
+                <div class="gallery-overlay">
+                    <span>View Project</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>About Us</h2>
+            <h3>Building Dreams Into Reality</h3>
+        </div>
+        
+        <div class="about-content">
+            <p>With over <strong>15 years of experience</strong>, Clean Interiors has been transforming homes and commercial spaces across the region. We believe every space has the potential to inspire.</p>
+            
+            <p>Our team of expert designers, craftsmen, and project managers work together to deliver exceptional results. From small repairs to complete renovations, we approach every project with the same dedication to excellence.</p>
+            
+            <p>What sets us apart is our commitment to <strong>minimalist elegance</strong> and <strong>thoughtful functionality</strong>. We embrace sustainable practices and source eco-friendly materials without compromising on style.</p>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h4>Quality First</h4>
+                <p>We never compromise on quality. Every project receives our full attention to detail.</p>
+            </div>
+            <div class="feature">
+                <h4>Timely Delivery</h4>
+                <p>We respect your time and complete projects within agreed timelines.</p>
+            </div>
+            <div class="feature">
+                <h4>Transparent Pricing</h4>
+                <p>No hidden costs. Clear, upfront pricing for all our services.</p>
+            </div>
+            <div class="feature">
+                <h4>Expert Team</h4>
+                <p>Skilled professionals with years of experience in their craft.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <h3>Request a Free Quote</h3>
+            <p style="color: #ccc; margin-top: 1rem;">Tell us about your project and we'll get back to you within 24 hours with a detailed quote.</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div style="margin-bottom: 2rem;">
+                    <h4>Phone</h4>
+                    <p>+254 712 345 678</p>
+                    <p style="font-size: 0.9rem; color: #888;">Mon-Sat 8am-6pm</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4>Email</h4>
+                    <p>info@cleaninteriors.co.ke</p>
+                    <p style="font-size: 0.9rem; color: #888;">We reply within 24h</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4>Location</h4>
+                    <p>Nairobi, Kenya</p>
+                    <p style="font-size: 0.9rem; color: #888;">Serving all areas</p>
+                </div>
+                
+                <div>
+                    <h4>Working Hours</h4>
+                    <p>Mon - Sat: 8am - 6pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 1.5rem;">Why Choose Us?</h4>
+                <ul style="list-style: none; color: #ccc; line-height: 2;">
+                    <li>• Free, no-obligation quotes</li>
+                    <li>• Competitive pricing</li>
+                    <li>• Licensed & insured</li>
+                    <li>• Quality guaranteed</li>
+                    <li>• On-time completion</li>
+                </ul>
+            </div>
+            
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Phone Number">
+                <textarea rows="4" placeholder="Tell us about your project..." required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="section-header">
+            <h2>Testimonials</h2>
+            <h3>What Our Clients Say</h3>
+            <p style="color: var(--gray); margin-top: 1rem;">Don't just take our word for it. Here's what our satisfied customers have to say about our services.</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <p>Clean Interiors transformed our office space completely. The team was professional, punctual, and delivered beyond our expectations. The attention to detail was remarkable!</p>
+                <div class="testimonial-author">Sarah Ochieng</div>
+                <div class="testimonial-role">Property Manager - Apartment Complex</div>
+            </div>
+            
+            <div class="testimonial">
+                <p>Exceptional attention to detail. Our home has never looked better. The painting and tiling work was flawless. Highly recommend their services to anyone!</p>
+                <div class="testimonial-author">Michael Njoroge</div>
+                <div class="testimonial-role">Restaurant Owner - Restaurant Fit-out</div>
+            </div>
+            
+            <div class="testimonial">
+                <p>From start to finish, the team was responsive and delivered beyond our expectations. They completed the project on time and within budget. Will definitely hire again!</p>
+                <div class="testimonial-author">James Kimani</div>
+                <div class="testimonial-role">Homeowner - Karen, Nairobi</div>
+            </div>
+            
+            <div class="testimonial">
+                <p>Quality workmanship and excellent customer service. The gypsum ceiling and lighting installation transformed our restaurant. Our customers love the new ambiance!</p>
+                <div class="testimonial-author">Grace Wanjiku</div>
+                <div class="testimonial-role">CEO - Tech Startup</div>
+            </div>
+            
+            <div class="testimonial">
+                <p>The cabinet installation in our kitchen was perfect. The craftsmen were skilled and professional. Everything was done exactly as we envisioned. Thank you!</p>
+                <div class="testimonial-author">David Omondi</div>
+                <div class="testimonial-role">Homeowner - Lavington</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Clean Interiors & Construction. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Nairobi, Kenya | info@cleaninteriors.co.ke | +254 712 345 678</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
