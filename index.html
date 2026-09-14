@@ -1,172 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Clean Interiors and Decorations | Kenya</title>
+<title>
+Clean Interiors and Decorations | Professional Interior Finishing Kenya
+</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI', sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
+
 
 body{
-    background:#f8f8f8;
-    color:#333;
+background:#f8f8f8;
+color:#222;
 }
+
+
+:root{
+--gold:#d4af37;
+--dark:#111;
+--white:#fff;
+}
+
+
 
 header{
-    background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-    url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6");
-    background-size:cover;
-    background-position:center;
-    height:90vh;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,.85);
+z-index:1000;
+
 }
 
-header h1{
-    font-size:45px;
+
+
+.nav{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+
 }
 
-header span{
-    color:#d4af37;
+
+
+.logo{
+
+font-size:25px;
+font-weight:700;
+color:white;
+
 }
 
-header p{
-    font-size:20px;
-    margin:20px;
+
+.logo span{
+
+color:var(--gold);
+
 }
+
+
+
+.nav ul{
+
+display:flex;
+gap:25px;
+list-style:none;
+
+}
+
+
+
+.nav a{
+
+color:white;
+text-decoration:none;
+font-size:15px;
+
+}
+
+
+.nav a:hover{
+
+color:var(--gold);
+
+}
+
+
+
+/* HERO */
+
+
+.hero{
+
+height:100vh;
+
+background:
+
+linear-gradient(
+rgba(0,0,0,.65),
+rgba(0,0,0,.65)
+),
+
+url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+
+}
+
+
+
+.hero h1{
+
+font-size:55px;
+animation:fade 2s;
+
+}
+
+
+
+.hero span{
+
+color:var(--gold);
+
+}
+
+
+
+.hero p{
+
+font-size:20px;
+margin:20px;
+
+}
+
+
 
 .btn{
-    background:#d4af37;
-    padding:15px 30px;
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-    display:inline-block;
+
+display:inline-block;
+background:var(--gold);
+color:white;
+padding:15px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+
 }
+
+
+
+.btn:hover{
+
+transform:scale(1.05);
+
+}
+
+
+
 
 section{
-    padding:60px 10%;
+
+padding:90px 8%;
+
 }
+
+
 
 .title{
-    text-align:center;
-    margin-bottom:40px;
+
+text-align:center;
+margin-bottom:50px;
+
 }
 
+
+
 .title h2{
-    font-size:35px;
-    color:#222;
+
+font-size:38px;
+
 }
+
+
 
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+
 }
+
+
 
 .card{
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 20px #ddd;
+
+background:white;
+padding:35px;
+border-radius:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+transition:.4s;
+
 }
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+
 
 .card h3{
-    color:#d4af37;
-    margin-bottom:15px;
+
+color:var(--gold);
+margin-bottom:15px;
+
 }
 
 
-.price{
-    background:#111;
-    color:white;
-}
 
-table{
-    width:100%;
-    border-collapse:collapse;
-}
+.card p{
 
-td,th{
-    padding:15px;
-    border-bottom:1px solid #555;
+line-height:1.7;
+
 }
 
 
-.process{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-}
 
-.step{
-    flex:1;
-    min-width:220px;
-    background:white;
-    padding:25px;
-    border-radius:10px;
-}
+/* WHY US */
 
 
-form{
-    max-width:600px;
-    margin:auto;
-}
+.features{
 
-input,textarea,select{
-    width:100%;
-    padding:15px;
-    margin:10px 0;
-    border-radius:8px;
-    border:1px solid #ccc;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+
 }
 
 
-button{
-    width:100%;
-    padding:15px;
-    background:#d4af37;
-    color:white;
-    border:none;
-    border-radius:30px;
-    font-size:18px;
+
+.feature{
+
+background:#111;
+color:white;
+padding:30px;
+border-radius:15px;
+text-align:center;
+
 }
+
+
+
+.feature h3{
+
+color:var(--gold);
+
+}
+
+
+
+/* FOOTER */
 
 
 footer{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:30px;
+
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+
 }
 
 
+
 .whatsapp{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    background:#25D366;
-    color:white;
-    padding:15px 20px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:bold;
+
+position:fixed;
+right:25px;
+bottom:25px;
+background:#25D366;
+color:white;
+padding:15px 25px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+
+}
+
+
+
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+.nav ul{
+
+display:none;
+
+}
+
+
+.hero h1{
+
+font-size:35px;
+
+}
+
 }
 
 
 </style>
+
 
 </head>
 
@@ -174,20 +368,25 @@ footer{
 <body>
 
 
+
 <header>
 
-<div>
+<div class="nav">
 
-<h1>Clean <span>Interiors</span><br>
-and Decorations</h1>
+<div class="logo">
+Clean <span>Interiors</span>
+</div>
 
-<p>
-Professional Gypsum Ceilings | Painting | Interior Transformation
-</p>
 
-<a href="#quote" class="btn">
-Request A Quote
-</a>
+<ul>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
 
 </div>
 
@@ -195,94 +394,172 @@ Request A Quote
 
 
 
-<section>
+
+<section class="hero" id="home">
+
+
+<div>
+
+<h1>
+Transform Your Space<br>
+With <span>Professional Finishing</span>
+</h1>
+
+
+<p>
+Gypsum Ceilings • Painting • Interior Decoration
+<br>
+Serving Homes, Offices, Hotels & Businesses in Kenya
+</p>
+
+
+<a class="btn" href="#contact">
+Book A Site Visit
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<section id="services">
+
 
 <div class="title">
-<h2>Our Services</h2>
+
+<h2>
+Our Professional Services
+</h2>
+
 </div>
+
 
 
 <div class="cards">
 
 
 <div class="card">
-<h3>Gypsum Ceiling Installation</h3>
+
+<h3>
+Gypsum Ceiling Installation
+</h3>
+
 <p>
-Modern flat ceilings, designer ceilings, LED lighting designs and commercial installations.
+Modern flat ceilings, designer ceilings, LED lighting designs and commercial gypsum solutions.
 </p>
+
 </div>
+
 
 
 <div class="card">
-<h3>Professional Painting</h3>
+
+<h3>
+Professional Painting
+</h3>
+
 <p>
-Interior and exterior painting for homes, offices, hotels and businesses.
+Interior and exterior painting with quality preparation and premium finishing.
 </p>
+
 </div>
+
 
 
 <div class="card">
-<h3>Interior Decoration</h3>
+
+<h3>
+Interior Decoration
+</h3>
+
 <p>
-Colour selection, feature walls and complete space transformation.
+Complete transformation of homes, offices, hotels and commercial spaces.
 </p>
+
 </div>
 
 
 </div>
+
 
 </section>
 
 
 
-<section class="price">
+
+
+<section id="about">
+
 
 <div class="title">
-<h2 style="color:white">
-Kenya Market Starting Prices
+
+<h2>
+Why Choose Us
 </h2>
+
 </div>
 
 
-<table>
 
-<tr>
-<th>Service</th>
-<th>Starting From</th>
-</tr>
+<div class="features">
 
 
-<tr>
-<td>Gypsum Flat Ceiling</td>
-<td>KES 1,800 / m²</td>
-</tr>
+<div class="feature">
+
+<h3>
+Quality Work
+</h3>
+
+<p>
+Professional finishing standards.</p>
+
+</div>
 
 
-<tr>
-<td>Designer Gypsum Ceiling</td>
-<td>KES 2,500 / m²</td>
-</tr>
+<div class="feature">
+
+<h3>
+Fair Pricing
+</h3>
+
+<p>
+Transparent quotations.</p>
+
+</div>
 
 
-<tr>
-<td>Luxury Ceiling Designs</td>
-<td>KES 3,500 / m²</td>
-</tr>
+
+<div class="feature">
+
+<h3>
+Reliable Team
+</h3>
+
+<p>
+Committed to deadlines.</p>
+
+</div>
 
 
-<tr>
-<td>Painting Supply & Apply</td>
-<td>KES 300 - 650 / m²</td>
-</tr>
+
+<div class="feature">
+
+<h3>
+Modern Designs
+</h3>
+
+<p>
+Beautiful interior solutions.</p>
+
+</div>
 
 
-<tr>
-<td>Site Visit & Measurement</td>
-<td>KES 2,000</td>
-</tr>
 
-
-</table>
+</div>
 
 
 </section>
@@ -290,123 +567,61 @@ Kenya Market Starting Prices
 
 
 
-<section>
+
+<section id="contact">
 
 
 <div class="title">
-<h2>How We Work</h2>
+
+<h2>
+Contact Clean Interiors and Decorations
+</h2>
+
 </div>
 
 
-<div class="process">
+<center>
 
-
-<div class="step">
-<h3>1. Booking</h3>
 <p>
-Customer contacts us and books professional site inspection.
+📞 +254 798 468 849
 </p>
-</div>
 
-
-<div class="step">
-<h3>2. Quote</h3>
 <p>
-We measure, design and provide a detailed quotation.
+📧 yusufkamidi1@gmail.com
 </p>
-</div>
 
 
-<div class="step">
-<h3>3. Installation</h3>
-<p>
-Our experts complete the work with quality finishing.
-</p>
-</div>
+<br>
+
+<a class="btn" href="https://wa.me/254798468849">
+Chat On WhatsApp
+</a>
 
 
-<div class="step">
-<h3>4. Handover</h3>
-<p>
-Final inspection and project handover.
-</p>
-</div>
-
-
-</div>
-
-</section>
-
-
-
-
-<section id="quote">
-
-<div class="title">
-<h2>Request A Quote</h2>
-</div>
-
-
-<form>
-
-
-<input type="text" placeholder="Your Name">
-
-
-<input type="tel" placeholder="Phone Number">
-
-
-<select>
-
-<option>Select Service</option>
-<option>Gypsum Ceiling</option>
-<option>Painting</option>
-<option>Interior Decoration</option>
-
-</select>
-
-
-<textarea rows="5" placeholder="Describe your project"></textarea>
-
-
-<button>
-Send Request
-</button>
-
-
-</form>
+</center>
 
 
 </section>
-
 
 
 
 <footer>
 
-<h3>Clean Interiors and Decorations</h3>
+<h3>
+Clean Interiors and Decorations
+</h3>
 
 <p>
-Phone: +254 798 468 849
-</p>
-
-<p>
-Email: yusufkamidi1@gmail.com
-</p>
-
-<p>
-© 2026 All Rights Reserved
+Creating Beautiful Spaces Across Kenya
 </p>
 
 </footer>
 
 
 
-<a class="whatsapp"
-href="https://wa.me/254798468849">
+<a class="whatsapp" href="https://wa.me/254798468849">
 WhatsApp
 </a>
-
 
 
 </body>
