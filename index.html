@@ -1112,5 +1112,36 @@ document.getElementById("result").innerHTML=
 
 
 </script>
+<script>
+
+function openMenu(){
+
+document.getElementById("menu")
+.classList.toggle("active");
+
+}
+
+
+
+function sendWhatsApp(){
+
+let name=document.getElementById("customer").value;
+
+let service=document.getElementById("service").value;
+
+
+let message=
+"Hello Clean Interiors and Decorations.%0A"+
+"My name is "+name+
+"%0AI need quotation for "+service;
+
+
+window.open(
+"https://wa.me/254798468849?text="+message
+);
+
+}
+
+</script>
 </body>
 </html>
