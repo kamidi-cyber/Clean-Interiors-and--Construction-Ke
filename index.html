@@ -357,7 +357,47 @@ font-size:35px;
 }
 
 }
+.menu-btn{
 
+display:none;
+color:white;
+font-size:30px;
+cursor:pointer;
+
+}
+
+
+@media(max-width:768px){
+
+
+.menu-btn{
+
+display:block;
+
+}
+
+
+.nav ul{
+
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#111;
+display:none;
+flex-direction:column;
+padding:30px;
+
+}
+
+
+.nav ul.active{
+
+display:flex;
+
+}
+
+}
 
 </style>
 
