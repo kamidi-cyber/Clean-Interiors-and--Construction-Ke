@@ -623,6 +623,423 @@ Creating Beautiful Spaces Across Kenya
 WhatsApp
 </a>
 
+<!-- PROJECT PORTFOLIO -->
 
+<section id="projects">
+
+<div class="title">
+<h2>Our Recent Projects</h2>
+<p>Quality finishing for homes, offices and commercial spaces</p>
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1618220179428-22790b461013"
+style="width:100%;border-radius:15px;">
+
+<h3>Modern Living Room</h3>
+
+<p>
+Gypsum ceiling design with premium wall finishing.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
+style="width:100%;border-radius:15px;">
+
+<h3>Office Renovation</h3>
+
+<p>
+Professional painting and interior transformation.
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3"
+style="width:100%;border-radius:15px;">
+
+<h3>Luxury Interior</h3>
+
+<p>
+Custom ceiling and decoration solutions.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- PRICE CALCULATOR -->
+
+
+<section id="calculator">
+
+
+<div class="title">
+
+<h2>
+Get Instant Estimate
+</h2>
+
+<p>
+Calculate your approximate project cost
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+
+<h3>Gypsum Ceiling Calculator</h3>
+
+
+<label>
+Area (Square Metres)
+</label>
+
+
+<input id="area"
+type="number"
+placeholder="Example: 100">
+
+
+
+<label>
+Design Type
+</label>
+
+
+<select id="design">
+
+
+<option value="1800">
+Basic Flat Ceiling - KES 1,800/m²
+</option>
+
+
+<option value="2500">
+Modern Design - KES 2,500/m²
+</option>
+
+
+<option value="3500">
+Luxury Design - KES 3,500/m²
+</option>
+
+
+</select>
+
+
+
+<button onclick="calculate()">
+Calculate Price
+</button>
+
+
+<h2 id="result"></h2>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- PAINTING SERVICES -->
+
+
+<section>
+
+
+<div class="title">
+
+<h2>
+Painting Price Guide
+</h2>
+
+</div>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+Standard Painting
+</h3>
+
+<p>
+From KES 300 - 450 per m²
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Premium Painting
+</h3>
+
+<p>
+From KES 500 - 650 per m²
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Site Inspection
+</h3>
+
+<p>
+KES 2,000 booking fee
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- BOOKING FORM -->
+
+
+<section id="booking">
+
+
+<div class="title">
+
+<h2>
+Book Your Project
+</h2>
+
+</div>
+
+
+
+<form action="https://formsubmit.co/yusufkamidi1@gmail.com"
+method="POST">
+
+
+<input 
+type="text"
+name="name"
+placeholder="Full Name"
+required>
+
+
+
+<input
+type="tel"
+name="phone"
+placeholder="Phone Number"
+required>
+
+
+
+
+<select name="service">
+
+
+<option>
+Select Service
+</option>
+
+<option>
+Gypsum Ceiling
+</option>
+
+<option>
+Painting
+</option>
+
+<option>
+Interior Decoration
+</option>
+
+
+</select>
+
+
+
+<input
+type="text"
+name="location"
+placeholder="Project Location">
+
+
+
+<textarea
+name="message"
+placeholder="Describe your project">
+</textarea>
+
+
+
+
+<button>
+Submit Booking Request
+</button>
+
+
+</form>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- REVIEWS -->
+
+
+<section>
+
+
+<div class="title">
+
+<h2>
+What Our Clients Say
+</h2>
+
+</div>
+
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<h3>
+★★★★★
+</h3>
+
+<p>
+"Excellent gypsum ceiling finishing. My house looks completely different."
+</p>
+
+<strong>
+- Residential Client
+</strong>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+★★★★★
+</h3>
+
+<p>
+"Professional team and good communication throughout the project."
+</p>
+
+<strong>
+- Office Client
+</strong>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+★★★★★
+</h3>
+
+<p>
+"Clean Interiors delivered exactly what we wanted."
+</p>
+
+<strong>
+- Business Client
+</strong>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<script>
+
+
+function calculate(){
+
+
+let area=document.getElementById("area").value;
+
+let price=document.getElementById("design").value;
+
+
+let total=area*price;
+
+
+document.getElementById("result").innerHTML=
+
+"Estimated Cost: KES "+total.toLocaleString();
+
+
+
+}
+
+
+</script>
 </body>
 </html>
